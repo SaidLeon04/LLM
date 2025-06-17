@@ -2,3 +2,5 @@
 .env
 key.env
 *.env
+ollama/key.env
+
