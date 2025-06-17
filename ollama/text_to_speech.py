@@ -1,5 +1,7 @@
 import requests
 import json
+from dotenv import load_dotenv
+import os
 
 """
 curl -X POST "https://api.groq.com/openai/v1/audio/speech" 
@@ -13,14 +15,16 @@ curl -X POST "https://api.groq.com/openai/v1/audio/speech"
        }' 
   --output out.wav
 """
-api_key = "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"
+
+load_dotenv(dotenv_path="key.env") 
+api_key = os.getenv("GROQ_API_KEY")
 
 URI = "https://api.groq.com/openai/v1/audio/speech"
 
 data = {
     "model": "playai-tts",
     "voice": "Aaliyah-PlayAI",
-    "input": "Hola perdida!",
+    "input": "Welcome to Groq AI, the future of artificial intelligence.",
     "response_format": "wav"
 }
 
